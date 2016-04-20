@@ -1,0 +1,1 @@
+Tool for creating a set of sass vars to be used as a measure for site building
