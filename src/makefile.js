@@ -23,7 +23,7 @@ const PROPORTIONAL_UNIT = 'rem';
 
 function getDivisions (isProportional) {
     return Object.keys(DIVISIONS).map((key) => {
-        return `$${isProportional ? 'p' : ''}${key + UNIT_NAME}: $u * ${DIVISIONS[key]};`;
+        return `$${key}${isProportional ? 'p' : ''}${UNIT_NAME}: $u * ${DIVISIONS[key]};`;
     }).join('\n');
 }
 
