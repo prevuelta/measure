@@ -6,7 +6,7 @@ eg output:
 ```
 /*
 *   STRUCTURE VARIABLES
-*   Generated Wed Apr 20 2016 12:32:37 GMT+1200 (NZST)
+*   Generated Mon Jun 27 2016 16:17:17 GMT+1200 (NZST)
 */
 
 /*
@@ -44,29 +44,30 @@ $pu: 1rem;
 
 /* Proportional unit divisions */
 
-$hpu: $u * 0.5;
-$qpu: $u * 0.25;
-$qqqpu: $u * 0.75;
-$tpu: $u * 0.3333333333333333;
-$ttpu: $u * 0.6666666666666666;
+$hpu: $pu * 0.5;
+$qpu: $pu * 0.25;
+$qqqpu: $pu * 0.75;
+$tpu: $pu * 0.3333333333333333;
+$ttpu: $pu * 0.6666666666666666;
 
 /* Proportional unit multiplications */
 
 $puh: $pu * 1.5;
-$pu2: $u * 2;
-$pu3: $u * 3;
-$pu4: $u * 4;
-$pu5: $u * 5;
-$pu6: $u * 6;
-$pu7: $u * 7;
-$pu8: $u * 8;
-$pu9: $u * 9;
-$pu10: $u * 10;
+$pu2: $pu * 2;
+$pu3: $pu * 3;
+$pu4: $pu * 4;
+$pu5: $pu * 5;
+$pu6: $pu * 6;
+$pu7: $pu * 7;
+$pu8: $pu * 8;
+$pu9: $pu * 9;
+$pu10: $pu * 10;
 
 /* Misc measurements */
 
 $golden_ratio: (1+sqrt(5))/2;
 $silver_ratio: sqrt(2);
+
 
 
 ```

@@ -22,8 +22,9 @@ const PROPORTIONAL_UNIT = 'rem';
 
 
 function getDivisions (isProportional) {
+    let prop = isProportional ? 'p' : '';
     return Object.keys(DIVISIONS).map((key) => {
-        return `$${key}${isProportional ? 'p' : ''}${UNIT_NAME}: $u * ${DIVISIONS[key]};`;
+        return `$${key}${isProportional ? 'p' : ''}${UNIT_NAME}: $${prop}u * ${DIVISIONS[key]};`;
     }).join('\n');
 }
 
@@ -31,8 +32,10 @@ function getMultiplications (isProportional) {
 
     let multiplications = '';
 
+    let prop = isProportional ? 'p' : '';
+
     for (let i = 2;i <= MULTIPLE_LIMIT; i++) {
-        multiplications += `$${isProportional ? 'p' : ''}${UNIT_NAME}${i}: $u * ${i};\n`;
+        multiplications += `$${prop}${UNIT_NAME}${i}: $${prop}u * ${i};\n`;
     };
 
     return multiplications;
@@ -78,6 +81,6 @@ $silver_ratio: sqrt(2);
 
 `;
 
-fs.writeFile(DIST_DIR + DIST_FILE, templateString, (resp) => {
+fs.writeFile(DIST_DIR + DIST_FILE, templateString, (err, resp) => {
     console.log(resp);
 });
