@@ -1,7 +1,16 @@
 ## Measure
 A quick tool for creating a measure.scss file that includes unit & proportional unit measurements, divisions and multiplications to be used in sass layout / typography.
 
-eg output:
+To run:
+
+```
+cd src
+node makeFile.js
+```
+
+Voila!
+
+*eg output:*
 
 ```
 /*
@@ -67,7 +76,6 @@ $pu10: $pu * 10;
 
 $golden_ratio: (1+sqrt(5))/2;
 $silver_ratio: sqrt(2);
-
 
 
 ```
