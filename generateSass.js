@@ -2,7 +2,7 @@
 
 let fs = require('fs');
 
-const DIST_DIR = '../dist/';
+const DIST_DIR = './dist/';
 const DIST_FILE = 'measure.scss';
 const UNIT_NAME = 'u';
 const MULTIPLE_LIMIT = 10;
