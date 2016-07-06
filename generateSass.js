@@ -76,6 +76,18 @@ $puh: $pu * 1.5;
 ${ getMultiplications(true) }
 /* Misc measurements */
 
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+ 
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+ 
+  @return $x1;
+}
+
 $golden_ratio: (1+sqrt(5))/2;
 $silver_ratio: sqrt(2);
 
