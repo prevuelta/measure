@@ -41,8 +41,22 @@ function getMultiplications (isProportional) {
     return multiplications;
 }
 
+
+function getFibonnaciSequence (base) {
+    let i;
+    let fib = [];
+
+    fib[0] = +base*2;
+    fib[1] = fib[0]+(+base);
+
+    for(i=2; i<=10; i++) {
+        fib[i] = fib[i-2] + fib[i-1];
+    }
+    return fib.map((n, i) => `$f${i}: ${n}px;`).join('\n');
+}
+
 let templateString = `/*
-*   STRUCTURE VARIABLES
+*   MEASURE
 *   Generated ${new Date()}
 */
 
@@ -79,17 +93,21 @@ ${ getMultiplications(true) }
 @function sqrt($r) {
   $x0: 1;
   $x1: $x0;
- 
+
   @for $i from 1 through 10 {
     $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
     $x0: $x1;
   }
- 
+
   @return $x1;
 }
 
 $golden_ratio: (1+sqrt(5))/2;
 $silver_ratio: sqrt(2);
+
+/* Fibonnaci Sequence */
+
+${ getFibonnaciSequence(BASE_UNIT) }
 
 `;
 

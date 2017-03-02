@@ -1,6 +1,6 @@
 /*
-*   STRUCTURE VARIABLES
-*   Generated Sun Jul 03 2016 13:52:34 GMT+1200 (NZST)
+*   MEASURE
+*   Generated Fri Mar 03 2017 10:11:25 GMT+1300 (NZDT)
 */
 
 /*
@@ -59,6 +59,31 @@ $pu10: $pu * 10;
 
 /* Misc measurements */
 
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
 $golden_ratio: (1+sqrt(5))/2;
 $silver_ratio: sqrt(2);
 
+/* Fibonnaci Sequence */
+
+$f0: 24px;
+$f1: 36px;
+$f2: 60px;
+$f3: 96px;
+$f4: 156px;
+$f5: 252px;
+$f6: 408px;
+$f7: 660px;
+$f8: 1068px;
+$f9: 1728px;
+$f10: 2796px;
