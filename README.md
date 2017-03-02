@@ -1,7 +1,7 @@
 ## Measure
 A quick tool for creating a measure.scss file that includes unit & proportional unit measurements, divisions and multiplications to be used in sass layout / typography.
 
-To run:
+**To run:**
 
 ```
 cd src
@@ -10,7 +10,7 @@ node generateSass.js
 
 *Voila!*
 
-Usage:
+**Usage:**
 
 ```
 .h3 {
@@ -21,7 +21,7 @@ section {
 }
 ```
 
-*eg output:*
+**eg output:**
 
 ```
 /*
