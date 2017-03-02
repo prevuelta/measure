@@ -4,7 +4,6 @@ A quick tool for creating a measure.scss file that includes unit & proportional 
 **To run:**
 
 ```
-cd src
 node generateSass.js
 ```
 
