@@ -1,13 +1,15 @@
 ## Measure
 A quick tool for creating a measure.scss file that includes unit & proportional unit measurements, divisions and multiplications to be used in sass layout / typography.
 
-**To run:**
+**To generate sass file (measure.scss):**
 
 ```
 node generateSass.js
 ```
 
 *Voila!*
+
+Include the measure.scss in your main sass file.
 
 **Usage:**
 
@@ -17,10 +19,11 @@ node generateSass.js
 }
 section {
     margin: $u;
+    width: $f6;
 }
 ```
 
-**eg output:**
+**Generated sass example:**
 
 ```
 /*
