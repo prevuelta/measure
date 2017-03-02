@@ -8,7 +8,18 @@ cd src
 node generateSass.js
 ```
 
-Voila!
+*Voila!*
+
+Usage:
+
+```
+.h3 {
+    font-size: $pu;
+}
+section {
+    margin: $u;
+}
+```
 
 *eg output:*
 
