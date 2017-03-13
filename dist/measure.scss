@@ -1,6 +1,6 @@
 /*
 *   MEASURE
-*   Generated Mon Mar 13 2017 14:57:44 GMT+1300 (NZDT)
+*   Generated Mon Mar 13 2017 15:09:55 GMT+1300 (NZDT)
 */
 
 /*
@@ -56,20 +56,6 @@ $pu8: $pu * 8;
 $pu9: $pu * 9;
 $pu10: $pu * 10;
 
-/* Misc measurements */
-
-@function sqrt($r) {
-  $x0: 1;
-  $x1: $x0;
-
-  @for $i from 1 through 10 {
-    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-    $x0: $x1;
-  }
-
-  @return $x1;
-}
-
 /* Ratios */
 
 $golden: 1.618033988749895;
@@ -78,41 +64,41 @@ $third: 1.3333333333333333;
 
 /* Type scale (Default 16px) */
 
-$t0: 0rem;
-$t1: 1rem;
-$t2: 1rem;
-$t3: 2rem;
-$t4: 3rem;
-$t5: 4rem;
-$t6: 7rem;
-$t7: 11rem;
-$t8: 18rem;
-$t9: 29rem;
+$t1: 0.382rem;
+$t2: 0.618rem;
+$t3: 1rem;
+$t4: 1.618rem;
+$t5: 2.618rem;
+$t6: 4.236rem;
+$t7: 6.854rem;
+$t8: 11.09rem;
+$t9: 17.944rem;
+$t10: 29.034rem;
 
 /* Layout scale */
 
-$l0: 17px;
-$l1: 24px;
-$l2: 34px;
-$l3: 48px;
-$l4: 68px;
-$l5: 96px;
-$l6: 136px;
-$l7: 192px;
-$l8: 272px;
-$l9: 384px;
+$l1: 17px;
+$l2: 24px;
+$l3: 34px;
+$l4: 48px;
+$l5: 68px;
+$l6: 96px;
+$l7: 136px;
+$l8: 192px;
+$l9: 272px;
+$l10: 384px;
 
 /* Fibonnaci series */
 
-$f0: 24px;
-$f1: 36px;
-$f2: 60px;
-$f3: 96px;
-$f4: 156px;
-$f5: 252px;
-$f6: 408px;
-$f7: 660px;
-$f8: 1068px;
-$f9: 1728px;
-$f10: 2796px;
+$f1: 24px;
+$f2: 36px;
+$f3: 60px;
+$f4: 96px;
+$f5: 156px;
+$f6: 252px;
+$f7: 408px;
+$f8: 660px;
+$f9: 1068px;
+$f10: 1728px;
+$f11: 2796px;
 

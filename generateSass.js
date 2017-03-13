@@ -62,12 +62,12 @@ function getFibonnaciSequence (base) {
     for(i = 2; i <= 10; i++) {
         fib[i] = fib[i-2] + fib[i-1];
     }
-    return fib.map((n, i) => `$f${i}: ${n}px;`).join('\n');
+    return fib.map((n, i) => `$f${i+1}: ${n}px;`).join('\n');
 }
 
 function getTypeScale (ratio, limit = 10) {
     let base = 1 / ratio / ratio / ratio;
-    return getScale('t', base, ratio, 'rem', limit);
+    return getScale('t', base, ratio, 'rem', false, limit);
 }
 
 function getScale (prefix, base, ratio, unit, round, limit = 10) {
@@ -76,7 +76,7 @@ function getScale (prefix, base, ratio, unit, round, limit = 10) {
 
     for (let i = 0; i < limit; i++) {
         let current = prev * ratio;
-        scale.push(`$${prefix}${i}: ${round ? Math.round(current) : Math.round(current * 1000)/1000}${unit};`);
+        scale.push(`$${prefix}${i+1}: ${round ? Math.round(current) : Math.round(current * 1000)/1000}${unit};`);
         prev = current;
     }
 
@@ -116,20 +116,6 @@ ${ getDivisions(true) }
 
 $puh: $pu * 1.5;
 ${ getMultiplications(true) }
-
-/* Misc measurements */
-
-@function sqrt($r) {
-  $x0: 1;
-  $x1: $x0;
-
-  @for $i from 1 through 10 {
-    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-    $x0: $x1;
-  }
-
-  @return $x1;
-}
 
 /* Ratios */
 

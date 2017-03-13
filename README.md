@@ -28,7 +28,7 @@ section {
 ```
 /*
 *   MEASURE
-*   Generated Fri Mar 03 2017 10:11:25 GMT+1300 (NZDT)
+*   Generated Mon Mar 13 2017 15:09:55 GMT+1300 (NZDT)
 */
 
 /*
@@ -57,7 +57,6 @@ $u7: $u * 7;
 $u8: $u * 8;
 $u9: $u * 9;
 $u10: $u * 10;
-
 /*
 *   Proportional units
 */
@@ -85,36 +84,52 @@ $pu8: $pu * 8;
 $pu9: $pu * 9;
 $pu10: $pu * 10;
 
-/* Misc measurements */
+/* Ratios */
 
-@function sqrt($r) {
-  $x0: 1;
-  $x1: $x0;
+$golden: 1.618033988749895;
+$silver: 1.4142135623730951;
+$third: 1.3333333333333333;
 
-  @for $i from 1 through 10 {
-    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-    $x0: $x1;
-  }
+/* Type scale (Default 16px) */
 
-  @return $x1;
-}
+$t1: 0.382rem;
+$t2: 0.618rem;
+$t3: 1rem;
+$t4: 1.618rem;
+$t5: 2.618rem;
+$t6: 4.236rem;
+$t7: 6.854rem;
+$t8: 11.09rem;
+$t9: 17.944rem;
+$t10: 29.034rem;
 
-$golden_ratio: (1+sqrt(5))/2;
-$silver_ratio: sqrt(2);
+/* Layout scale */
 
-/* Fibonnaci Sequence */
+$l1: 17px;
+$l2: 24px;
+$l3: 34px;
+$l4: 48px;
+$l5: 68px;
+$l6: 96px;
+$l7: 136px;
+$l8: 192px;
+$l9: 272px;
+$l10: 384px;
 
-$f0: 24px;
-$f1: 36px;
-$f2: 60px;
-$f3: 96px;
-$f4: 156px;
-$f5: 252px;
-$f6: 408px;
-$f7: 660px;
-$f8: 1068px;
-$f9: 1728px;
-$f10: 2796px;
+/* Fibonnaci series */
+
+$f1: 24px;
+$f2: 36px;
+$f3: 60px;
+$f4: 96px;
+$f5: 156px;
+$f6: 252px;
+$f7: 408px;
+$f8: 660px;
+$f9: 1068px;
+$f10: 1728px;
+$f11: 2796px;
+
 
 
 ```
