@@ -1,0 +1,8 @@
+@import '../dist/measure.scss';
+
+.test {
+    font-size: $pu;
+    width: $f6+px;
+    height: $l7;
+    line-height: $t3;
+}

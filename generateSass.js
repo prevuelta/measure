@@ -51,18 +51,14 @@ function getMultiplications (isProportional) {
     return multiplications.join('\n')
 }
 
-
-function getFibonnaciSequence (base) {
-    let i;
+function getFibonnaciSequence (limit = 10) {
     let fib = [];
 
-    fib[0] = +base*2;
-    fib[1] = fib[0]+(+base);
-
-    for(i = 2; i <= 10; i++) {
-        fib[i] = fib[i-2] + fib[i-1];
+    for(let i = 3; i <= limit; i++) {
+        fib.push(`$f${i}: $f${i-1}+$f${i-2};`);
     }
-    return fib.map((n, i) => `$f${i+1}: ${n}px;`).join('\n');
+
+    return fib.join('\n');
 }
 
 function getTypeScale (ratio, limit = 10) {
@@ -131,6 +127,8 @@ ${ getScale('l', BASE_UNIT, LAYOUT_SCALE_RATIO, 'px', true) }
 
 /* Fibonnaci series */
 
+$f1: ${BASE_UNIT};
+$f2: ${BASE_UNIT*2};
 ${ getFibonnaciSequence(BASE_UNIT) }
 
 `;

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA;;;EAGE;AAEF;;EAEE;AAIF,oBAAoB;AAQpB,0BAA0B;AAY1B;;EAEE;AAIF,iCAAiC;AAQjC,uCAAuC;AAavC,YAAY;AAMZ,+BAA+B;AAa/B,kBAAkB;AAalB,sBAAsB;ACxFtB,KAAM;EACF,SAAS,EDgCR,IAAI;EC/BL,KAAK,EAAE,KAAM;EACb,MAAM,EDgFL,KAAK;EC/EN,WAAW,ED8DV,IAAI",
+"sources": ["../dist/measure.scss","test.scss"],
+"names": [],
+"file": "result.css"
+}
