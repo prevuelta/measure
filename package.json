@@ -4,16 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build" : "node ./generateSass.js"
+    "build": "node ./generateSass.js",
+    "lint" : "eslint ./generateSass.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prevuelta/measure.git"
   },
+    "eslintConfig": {
+        "env": {
+            "node": true
+        }
+    },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/prevuelta/measure/issues"
   },
-  "homepage": "https://github.com/prevuelta/measure#readme"
+  "homepage": "https://github.com/prevuelta/measure#readme",
+  "devDependencies": {
+    "eslint": "^3.17.1"
+  }
 }

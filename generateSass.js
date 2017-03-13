@@ -1,3 +1,5 @@
+/* eslint-env node, global process */
+
 'use strict';
 
 let fs = require('fs');
@@ -15,7 +17,15 @@ const DIVISIONS = {
     'tt': 2/3 // Two thirds
 };
 
-const BASE_UNIT = '12';
+const RATIOS = {
+    golden: (1+Math.sqrt(5))/2,
+    silver: Math.sqrt(2),
+    third: 4/3
+}
+
+const BASE_UNIT = 12;
+const TYPE_SCALE_RATIO = RATIOS.golden
+const LAYOUT_SCALE_RATIO = RATIOS.silver; // Silver ratio
 const PROPORTIONAL_BASE_UNIT = '1';
 const UNIT = 'px';
 const PROPORTIONAL_UNIT = 'rem';
@@ -30,15 +40,15 @@ function getDivisions (isProportional) {
 
 function getMultiplications (isProportional) {
 
-    let multiplications = '';
+    let multiplications = [];
 
     let prop = isProportional ? 'p' : '';
 
     for (let i = 2;i <= MULTIPLE_LIMIT; i++) {
-        multiplications += `$${prop}${UNIT_NAME}${i}: $${prop}u * ${i};\n`;
-    };
+        multiplications.push(`$${prop}${UNIT_NAME}${i}: $${prop}u * ${i};`);
+    }
 
-    return multiplications;
+    return multiplications.join('\n')
 }
 
 
@@ -49,10 +59,28 @@ function getFibonnaciSequence (base) {
     fib[0] = +base*2;
     fib[1] = fib[0]+(+base);
 
-    for(i=2; i<=10; i++) {
+    for(i = 2; i <= 10; i++) {
         fib[i] = fib[i-2] + fib[i-1];
     }
     return fib.map((n, i) => `$f${i}: ${n}px;`).join('\n');
+}
+
+function getTypeScale (ratio, limit = 10) {
+    let base = 1 / ratio / ratio / ratio;
+    return getScale('t', base, ratio, 'rem', limit);
+}
+
+function getScale (prefix, base, ratio, unit, round, limit = 10) {
+    let scale = [];
+    let prev = base
+
+    for (let i = 0; i < limit; i++) {
+        let current = prev * ratio;
+        scale.push(`$${prefix}${i}: ${round ? Math.round(current) : Math.round(current * 1000)/1000}${unit};`);
+        prev = current;
+    }
+
+    return scale.join('\n');
 }
 
 let templateString = `/*
@@ -88,6 +116,7 @@ ${ getDivisions(true) }
 
 $puh: $pu * 1.5;
 ${ getMultiplications(true) }
+
 /* Misc measurements */
 
 @function sqrt($r) {
@@ -102,15 +131,24 @@ ${ getMultiplications(true) }
   @return $x1;
 }
 
-$golden_ratio: (1+sqrt(5))/2;
-$silver_ratio: sqrt(2);
+/* Ratios */
 
-/* Fibonnaci Sequence */
+${Object.keys(RATIOS).map(k => `$${k}: ${RATIOS[k]};`).join('\n')}
+
+/* Type scale (Default 16px) */
+
+${ getTypeScale(TYPE_SCALE_RATIO) }
+
+/* Layout scale */
+
+${ getScale('l', BASE_UNIT, LAYOUT_SCALE_RATIO, 'px', true) }
+
+/* Fibonnaci series */
 
 ${ getFibonnaciSequence(BASE_UNIT) }
 
 `;
 
-fs.writeFile(DIST_DIR + DIST_FILE, templateString, (err, resp) => {
-    console.log(resp);
+fs.writeFile(DIST_DIR + DIST_FILE, templateString, (err) => {
+    process.stdout.write = err || 'File write successful';
 });
