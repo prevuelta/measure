@@ -15,11 +15,12 @@ Include the measure.scss in your main sass file.
 
 ```
 .h3 {
-    font-size: $pu;
+    font-size: $pu; // Proportional unit or;
+    font-size: $t1; // on type scale
 }
 section {
-    margin: $u;
-    width: $f6;
+    margin: $u2; // 2 base units
+    width: $l4; // on layout scale
 }
 ```
 
